@@ -1,0 +1,23 @@
+name: Transfer Specific Files
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  transfer-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push generated webpage to another repository
+        uses: nkoppel/push-files-to-another-repository@v1.1.4
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-files: '*'
+          destination-username: 'istpl4114'
+          destination-repository: 'dest-new'
+          destination-directory: '/'
+          destination-branch: 'all'
+          commit-email: 'anjaneyulu.v@istpl.co'
