@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main/* # You can specify other branches like 'feature/*' if needed.
+      - main
+      - staging # You can specify other branches like 'feature/*' if needed.
   # pull_request:
   #   branches:
   #     - main
@@ -13,8 +14,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    #   - name: Checkout Code
+    #     uses: actions/checkout@v2
 
       # - name: Set up Python (Example, adjust for your stack)
       #   uses: actions/setup-python@v2
@@ -30,15 +31,15 @@ jobs:
           # Here you can add commands for transferring data, or any necessary build steps
           echo "Transfer data or perform additional actions"
 
-      # - name: Push Changes to Another Branch
-      #   run: |
-      #     git config --global user.name "Your GitHub Username"
-      #     git config --global user.email "your-email@example.com"
-      #     git checkout -b transfer-branch # create or checkout another branch if needed
-      #     git add .
-      #     git commit -m "Automated transfer data"
-      #     git push origin transfer-branch
+      - name: Push Changes to Another Branch
+        run: |
+          git config --global user.name "istpl4114"
+          git config --global user.email "anjaneyulu.v@istpl.co"
+          git checkout -b staging # create or checkout another branch if needed
+          git add .
+          git commit -m "Automated transfer data"
+          git push origin staging
         env:
           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         # API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       # Optionally, handle artifact upload/download, testing, or deployments here
