@@ -19,5 +19,6 @@ jobs:
           destination-username: 'istpl4114'
           destination-repository: 'dest-new'
           destination-directory: '/'
-          destination-branch: 'all'
+          # destination-branch: 'all'
+          destination-branch: 'main'
           commit-email: 'anjaneyulu.v@istpl.co'
